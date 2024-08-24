@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# You can check the live demo here.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Movie Rating React Project Live Demo](https://66c9b802bd7394c500e20bd8--react-project-movie-rating.netlify.app/).
 
 ## Available Scripts
 
