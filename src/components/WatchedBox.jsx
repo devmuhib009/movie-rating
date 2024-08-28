@@ -1,7 +1,8 @@
 import WatchedSummary from './WatchedSummary'
 import WatchedMoviesList from './WatchedMoviesList'
 import { useState } from "react"
-export default function WatchedBox({tempWatchedData, average}){
+import MovieDetails from './MovieDetails';
+export default function WatchedBox({tempWatchedData, average, selectedId}){
     const [isOpen2, setIsOpen2] = useState(true);
     const [watched, setWatched] = useState(tempWatchedData);
 
@@ -16,8 +17,12 @@ export default function WatchedBox({tempWatchedData, average}){
                 </button>
                 {isOpen2 && (
                     <>
-                    <WatchedSummary watched={watched} average={average}/>
-                    <WatchedMoviesList watched={watched}/>                    
+                    { selectedId ? <MovieDetails/> : 
+                        <>
+                        <WatchedSummary watched={watched} average={average}/>
+                        <WatchedMoviesList watched={watched}/>
+                        </>  
+                    }                  
                     </>
                 )}
             </div>
