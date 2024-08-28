@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import StarRating from './StarRating'
 const KEY = "ea3fad71";
-export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, onMovieRating}){
-    const [movie, setMovie] = useState({})
-    const [userRating, setUserRating] = useState('');
+export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, movieRating, onMovieRating}){
+    const [movie, setMovie] = useState({});
 
     const {Title: title, Year: year, Poster: poster, Runtime: runtime, imdbRating, Plot: plot, Released: released, Actors: actors, Director: director, Genre: genre} = movie;
 
@@ -16,7 +15,7 @@ export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, on
             poster,
             imdbRating: Number(imdbRating),
             runtime: runtime.split(' ').at(0),
-            userRating
+            movieRating 
         }
 
         onAddWatched(newWatchedMovie);
@@ -50,7 +49,7 @@ export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, on
             <section>
                 <div className="rating">
                     <StarRating size={24} maxRating={10} onMovieRating={onMovieRating}/>
-                    {userRating > 0  && (<button className="btn-add" onClick={handleAdd}>+ Add to list</button>)}
+                    {movieRating > 0  && (<button className="btn-add" onClick={handleAdd}>+ Add to list</button>)}
                 </div>
                 <p><em>{plot}</em></p>
                 <p>Starring {actors}</p>

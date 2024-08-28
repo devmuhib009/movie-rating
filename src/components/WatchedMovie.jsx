@@ -11,7 +11,7 @@ export default function WatchedMovie({movie}){
                 </p>
                 <p>
                     <span>🌟</span>
-                    <span>{movie.userRating}</span>
+                    <span>{movie.movieRating}</span>
                 </p>
                 <p>
                     <span>⏳</span>
