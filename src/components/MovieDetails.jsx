@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import StarRating from './StarRating'
 const KEY = "ea3fad71";
-export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, movieRating, onMovieRating}){
+export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, movieRating, onMovieRating, watched}){
     const [movie, setMovie] = useState({});
+
+    const isWatched = watched.map((movie) => movie.imdbRatin).includes(selectedId);
+
+    console.log(isWatched);
 
     const {Title: title, Year: year, Poster: poster, Runtime: runtime, imdbRating, Plot: plot, Released: released, Actors: actors, Director: director, Genre: genre} = movie;
 
@@ -48,8 +52,15 @@ export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, mo
             </header>
             <section>
                 <div className="rating">
-                    <StarRating size={24} maxRating={10} onMovieRating={onMovieRating}/>
-                    {movieRating > 0  && (<button className="btn-add" onClick={handleAdd}>+ Add to list</button>)}
+                    {
+                    !isWatched ? 
+                    <>
+                        <StarRating size={24} maxRating={10} onMovieRating={onMovieRating}/>
+                        {movieRating > 0  && (<button className="btn-add" onClick={handleAdd}>+ Add to list</button>)}
+                    </>
+                    :
+                    <p>You Rated this movie ⭐️⭐️⭐️</p>
+                    }
                 </div>
                 <p><em>{plot}</em></p>
                 <p>Starring {actors}</p>
