@@ -17,11 +17,12 @@ const average = (arr) =>
 const KEY = "ea3fad71";
 
 export default function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("Test");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [movieRating, setMovieRating] = useState(0);
 
 function handleSelectMovie(id){
   setSelectedId(((selectedId) => (id === selectedId ? null : id)))
@@ -29,6 +30,10 @@ function handleSelectMovie(id){
 
 function handleCloseMovie(){
   setSelectedId(null)
+}
+
+function handleAddWatched(movie){
+  setWatched(watched => [...watched, movie])
 }
 
 useEffect( function() {
@@ -68,7 +73,13 @@ useEffect( function() {
         </Box>
         <Box>
           { selectedId 
-            ? <MovieDetails selectedId={selectedId} onCloseMovie={handleCloseMovie}/> 
+            ? <MovieDetails 
+                selectedId={selectedId} 
+                onCloseMovie={handleCloseMovie}
+                onAddWatched={handleAddWatched}
+                onMovieRating={setMovieRating}
+                movieRating={movieRating}
+              /> 
             : 
               <>
               <WatchedSummary watched={watched} average={average}/>
