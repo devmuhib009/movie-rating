@@ -35,6 +35,14 @@ export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, mo
         getMoviewDetails();
     },[selectedId])
 
+    useEffect(function () {
+        document.title = `Movie | ${title}`;
+
+        return function(){
+            document.title = 'usePopcorn';
+        }
+    },[title])
+
     return(
         <div className="details">
             <header>
