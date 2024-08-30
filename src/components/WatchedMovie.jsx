@@ -7,7 +7,7 @@ export default function WatchedMovie({movie, onDeleteWatched}){
                 <div>
                 <p>
                     <span>⭐️</span>
-                    <span>{movie.imdbRating}</span>
+                    <span>{movie.imdbRatingg}</span>
                 </p>
                 <p>
                     <span>🌟</span>
@@ -18,7 +18,7 @@ export default function WatchedMovie({movie, onDeleteWatched}){
                     <span>{movie.runtime} min</span>
                 </p>
 
-                <button className="btn-delete" onClick={() => onDeleteWatched(movie.imdbRating)}>X</button>
+                <button className="btn-delete" onClick={() => onDeleteWatched(movie.imdbRatingg)}>X</button>
                 </div>
             </li>
         </>

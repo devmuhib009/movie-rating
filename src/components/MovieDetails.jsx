@@ -4,7 +4,7 @@ const KEY = "ea3fad71";
 export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, movieRating, onMovieRating, watched}){
     const [movie, setMovie] = useState({});
 
-    const isWatched = watched.map((movie) => movie.imdbRatin).includes(selectedId);
+    const isWatched = watched.map((movie) => movie.imdbRating).includes(selectedId);
 
     console.log(isWatched);
 
@@ -13,11 +13,11 @@ export default function MovieDetails({selectedId, onCloseMovie, onAddWatched, mo
     function handleAdd(){
 
         const newWatchedMovie = {
-            imdbRatin : selectedId,
+            imdbRating : selectedId,
             title,
             year,
             poster,
-            imdbRating: Number(imdbRating),
+            imdbRatingg: Number(imdbRating),
             runtime: runtime.split(' ').at(0),
             movieRating 
         }

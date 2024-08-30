@@ -19,10 +19,15 @@ const KEY = "ea3fad71";
 export default function App() {
   const [query, setQuery] = useState("Test");
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [movieRating, setMovieRating] = useState(0);
+  // const [watched, setWatched] = useState([]);
+
+  const [watched, setWatched] = useState(function(){
+    const storedValue = localStorage.getItem("Watched");
+    return JSON.parse(storedValue);
+  });
 
 function handleSelectMovie(id){
   setSelectedId(((selectedId) => (id === selectedId ? null : id)))
@@ -37,8 +42,12 @@ function handleAddWatched(movie){
 }
 
 function handleDeleteWatched(id){
-  setWatched(watched => watched.filter((movie) => movie.imdbRating !== id));
+  setWatched(watched => watched.filter((movie) => movie.imdbRatingg !== id));
 }
+
+useEffect(function(){
+  localStorage.setItem("Watched", JSON.stringify(watched))
+},[watched])
 
 useEffect( function() {
   async function fetchMovies(){

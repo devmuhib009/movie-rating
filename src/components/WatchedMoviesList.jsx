@@ -4,7 +4,7 @@ export default function WatchedMoviesList({watched, onDeleteWatched}){
         <>
             <ul className="list">
                 {watched?.map((movie) => (
-                    <WatchedMovie movie={movie} key={movie.imdbRating}
+                    <WatchedMovie movie={movie} key={movie.imdbRatingg}
                     onDeleteWatched={onDeleteWatched}/>
                 ))}
             </ul>
