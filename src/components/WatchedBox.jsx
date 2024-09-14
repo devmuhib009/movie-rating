@@ -5,7 +5,7 @@ import MovieDetails from './MovieDetails';
 export default function WatchedBox({tempWatchedData, average, selectedId}){
     const [isOpen2, setIsOpen2] = useState(true);
     const [watched, setWatched] = useState(tempWatchedData);
-
+    console.log(watched);
     return(
         <>
             <div className="box">
