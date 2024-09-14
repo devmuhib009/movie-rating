@@ -22,12 +22,12 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [movieRating, setMovieRating] = useState(0);
-  // const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState([]);
 
-  const [watched, setWatched] = useState(function(){
-    const storedValue = localStorage.getItem("Watched");
-    return JSON.parse(storedValue);
-  });
+  // const [watched, setWatched] = useState(function(){
+  //   const storedValue = localStorage.getItem("Watched");
+  //   return JSON.parse(storedValue);
+  // });
 
 function handleSelectMovie(id){
   setSelectedId(((selectedId) => (id === selectedId ? null : id)))
