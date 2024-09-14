@@ -1,5 +1,4 @@
 export default function WatchedSummary({watched = [], average}){
-console.log("Watched Movies:", watched);
     const avgImdbRating = average(watched.map((movie) => movie.imdbRatingg));
     const avgUserRating = average(watched.map((movie) => movie.movieRating));
     const avgRuntime = average(watched.map((movie) => movie.runtime));
